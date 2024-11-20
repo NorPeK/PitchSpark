@@ -41,7 +41,7 @@ export const createPitch = async (state: any, form: FormData, pitch: string) => 
         return parseServerActionResponse({
             ...result,
             error: "not signed in",
-            status: "ERROR",
+            status: "SUCCESS",
         });
         
     } catch (error) {
