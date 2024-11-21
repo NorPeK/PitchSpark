@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pitch Spark
 
-## Getting Started
+Visit the live application here: [Pitch Spark](https://pitch-spark-tau.vercel.app/)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About the Application
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pitch Spark is an interactive platform for entrepreneurs and innovators to pitch their startup ideas, gain visibility, and connect with others. Users can submit their ideas, vote on others’ pitches, and participate in a collaborative ecosystem designed to spark innovation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Submit detailed startup pitches**: Includes titles, descriptions, categories, and markdown-supported content.
+- **Browse all startups**: Search by query and filter by categories.
+- **View individual startup pages**: Pitch details, author profiles, and editor picks.
+- **Dynamic user profiles**: Showcasing startups created by individual users.
+- **Polished UI**: Responsive layouts, markdown editing, and real-time updates.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technology Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend Framework
+**React 19**:  
+We’ve utilized the latest features of React, including:
+- **React Server Components (RSC)**: For improved server-side rendering.
+- **Enhanced React Suspense**: Lazy-loading components like skeleton loaders.
+- **Concurrent Features**: Seamless user experience during intensive data fetching.
 
-## Deploy on Vercel
+### Backend Framework
+**Next.js 15**:  
+Built with the App Router to enable server-side rendering and file-based routing. Key features include:
+- **App Router**: Organizing pages, layouts, and dynamic routes efficiently.
+- **Partial-Pre Rendering (PPR)**: Faster page loads by progressively rendering content.
+- **useActionState**: Server-side form handling and state management in client components.
+- **Middleware and Dynamic Routing**: Dynamic routes like `/user/[id]` and `/startup/[id]` power the app.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### CMS and Database
+**Sanity CMS**:  
+Manages and fetches startup and user data dynamically. Sanity’s GROQ (Graph-Relational Object Queries) enables flexible querying of structured content.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Styling and UI
+**Tailwind CSS**:  
+For responsive and modern UI designs, ensuring a consistent look across all devices.
+
+- **Custom UI Components**: Built reusable components like `Input`, `Textarea`, `Button`, and more for consistent styling and functionality.
+
+### Markdown Support
+**MDEditor (@uiw/react-md-editor)**:  
+Provides a powerful markdown editor for users to draft their startup pitches with live previews.
+
+---
+
+## Utilities and Enhancements
+
+- **Zod**: Schema-based form validation and error handling.
+- **Lucide Icons**: Clean and customizable icons for UI enhancements (e.g., EyeIcon, Send).
+- **Toast Notifications**: Feedback mechanism for actions like form submission, success, and error handling.
+
+### Hosting
+**Vercel**:  
+Deployed on Vercel for fast and reliable performance with CI/CD integration.
+
+---
+
+## New Features of React 19 and Next.js 15 Used
+
+### React 19
+- **Server Components**: Reduced client-side JavaScript payload, improving performance.
+- **React Suspense**: Lazy-loading user startups and displaying skeleton loaders during data fetching.
+
+### Next.js 15
+- **App Router**: Layouts, server components, and dynamic routes.
+- **useActionState**: Server-side form submissions with robust error handling.
+- **Progressive Rendering**: Faster content delivery on critical pages.
+- **Dynamic Metadata**: SEO optimization based on fetched data.
+
+---
+
+## Features
+
+- **Startup Submission**: Users can create startups with markdown-supported content and a custom image.
+- **Real-Time Updates**: Automatically sync changes with Sanity CMS using real-time listeners.
+- **User Profiles**: Displays user information, bio, and startups they've created.
+- **Search and Filter**: Search startups by title, category, or author with dynamic query handling.
+- **Dynamic Routing**: Routes like `/startup/[id]` and `/user/[id]` efficiently manage pages.
+- **Responsive Design**: Built with mobile-first principles using Tailwind CSS.
+
+---
+
+
+## Acknowledgments
+
+A special thanks to **JS Mastery** for their guidance and tutorials, which were instrumental in the creation of this application.
+
+Feel free to contribute or provide feedback. Let’s innovate together with **Pitch Spark**!

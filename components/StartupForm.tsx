@@ -12,13 +12,49 @@ import { useRouter } from "next/navigation"
 import { createPitch } from "@/lib/actions"
 
 
-const StartupForm = () => {
-  const [errors, setErrors] =  useState<Record<string,string>>({});
-  const [pitch, setPitch] = useState("");
-  const {toast} = useToast();
-  const router = useRouter();
 
-  const handleFormSubmit = async (prevState: any, formData: FormData) => {
+/**
+ * A form component to submit a new startup pitch.
+ *
+ * This component renders a form with 4 input fields and a Markdown editor for
+ * the pitch content. It uses Zod for form validation and Next.js's built-in
+ * `useActionState` hook to handle form submission. The component also uses a
+ * toast hook to display a success or error message after form submission.
+ *
+ * The component renders a success message and redirects to the newly created
+ * startup page if the form submission is successful. If the submission is
+ * unsuccessful, it renders an error message and displays the form errors.
+ *
+ * The component also renders a pending state while the form is being submitted.
+ *
+ * @returns A JSX element containing the form component.
+ */
+const StartupForm = () => {
+    const [errors, setErrors] = useState<Record<string, string>>({});
+    // State to track form validation errors (field-specific).
+  
+    const [pitch, setPitch] = useState("");
+    // State to track the Markdown pitch content entered by the user.
+  
+    const { toast } = useToast();
+    // Destructure the `toast` method to display notifications for success or error states.
+  
+    const router = useRouter();
+    // Router instance for navigating to the new startup page after successful form submission.
+
+/**
+ * Handles the form submission by parsing the form data and calling the
+ * `createPitch` action. If the action is successful, it displays a success
+ * toast and redirects to the newly created startup page. If the action is
+ * unsuccessful, it displays an error toast and renders the form errors.
+ *
+ * @param {Object} prevState - The previous state of the component.
+ * @param {FormData} formData - The form data containing the startup details.
+ * @returns {Promise<Object>} A promise that resolves to the response of the
+ * server action, indicating success or error status.
+ */
+  
+const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
         const formValues = {
             title: formData.get("title") as string,
